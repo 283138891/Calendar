@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <!--1. 日历的整体背景颜色 android:selectedWeekBackgroundColor="#aff"-->
+    <!--2. 月份选择部分的背景色 android:focusedMonthDateColor="#f00"-->
+    <!--3. 显示星期的背景色 android:weekSeparatorLineColor="#ff0"-->
+    <!--4. 被选中的日期的背景色 android:unfocusedMonthDateColor="#f9f"-->
+    <!--1.设置以星期一为每周第一天-->
+    <!--2.设置该组件总共显示四个星期-->
+    <CalendarView
+        android:id="@+id/calendarViewId"
+        android:layout_width="match_parent"
+        android:firstDayOfWeek="2"
+        android:shownWeekCount="4"
+        android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+
+
+
+
