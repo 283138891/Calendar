@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Calendar</string>
+    <string name="btn_openthins_lable">btn_openthins_lable</string>
 </resources>
