@@ -24,4 +24,5 @@ public class Thing_Activity extends AppCompatActivity {
         todayStrtext.setText(String.valueOf(dateStr));
 
     }
+
 }

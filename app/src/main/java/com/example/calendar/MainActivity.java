@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,27 +21,52 @@ import java.util.Date;
 public class MainActivity extends Activity {
     private  final String TAG = "Rate";
     private Context context;
+    TextView show;
     private CalendarView calendarView;
     Date today = Calendar.getInstance().getTime();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //"yyyyMMdd" 也行，小写的m表示分钟
     final String todayStr = sdf.format(today);
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        show = findViewById(R.id.trans_yin);
         //获取系统当前时间
-        Date today = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //"yyyyMMdd" 也行，小写的m表示分钟
-        final String todayStr = sdf.format(today);
-
+        today = Calendar.getInstance().getTime();
+        Calendar cal=Calendar.getInstance();
+        cal.setTime(today);
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //"yyyyMMdd" 也行，小写的m表示分钟
+//        final String todayStr = sdf.format(today);
+         Lunar lunar = new Lunar(cal);
+         String lunarStr = "";
+         lunarStr=lunar.animalsYear()+"年(";
+         lunarStr +=lunar.cyclical()+"年)";
+         lunarStr +=lunar.toString();
+         show.setText(lunarStr);
         context = this;
         calendarView = (CalendarView)findViewById(R.id.calendarViewId);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
+
                 String content = year+"-"+(month+1)+"-"+dayOfMonth;
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //"yyyyMMdd" 也行，小写的m表示分钟
+                Calendar calendar = Calendar.getInstance();
+                try{
+                    Date date =sdf.parse(content);
+                    calendar.setTime(date);
+
+                }catch (ParseException e){
+                    e.printStackTrace();
+                }
+                Lunar lunar = new Lunar(calendar);
+                String lunarStr = "";
+                lunarStr=lunar.animalsYear()+"年(";
+                lunarStr +=lunar.cyclical()+"年)";
+                lunarStr +=lunar.toString();
+                show.setText(lunarStr);//点击显示选中日期的农历
                 Toast.makeText(context, "你选择了:\n"+content, Toast.LENGTH_SHORT).show();//setOnDateChangeListener设置点击事件，选中某个日期
+
             }
         });
     }
@@ -51,7 +78,6 @@ public class MainActivity extends Activity {
         // startActivity(intent);
         openConfig();
     }
-
     private void openConfig() {
         Intent config =  new Intent(this, Thing_Activity.class);
         config.putExtra("chooseday",todayStr);
@@ -59,5 +85,36 @@ public class MainActivity extends Activity {
         // startActivity(config);
         startActivityForResult(config,1);
     }
+    //获取回传数据
+    public  void today(){
+
+
+    }
 }
+
+//    单选时跳转到今天
+//
+//
+//    nextMonth()
+//    跳转到下个月
+//
+//
+//    lastMonth()
+//    跳转到上个月
+//
+//
+//    nextYear()
+//    跳转到下一年的当前月
+//
+//
+//    lastYear()
+//    跳转到上一年的当前月
+//
+//
+//    toStart()
+//    跳转到日历的开始年月
+//
+//
+//    toEnd()
+
 
