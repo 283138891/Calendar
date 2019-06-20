@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by joybar on 2/24/16.
- */
+
 public class CalendarUtils {
 
     public static class CalendarSimpleDate {

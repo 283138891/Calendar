@@ -1,8 +1,7 @@
 package com.example.calendar;
 
-/**
- * Created by joybar on 2/24/16.
- */
+
+
 public class CalendarDate {
 
     private Lunar lunar = new Lunar();//农历
@@ -15,7 +14,6 @@ public class CalendarDate {
         this.isSelect = isSelect;
         this.lunar = lunar;
     }
-
 
     public CalendarDate( boolean isInThisMonth, boolean isSelect, Solar solar, Lunar lunar) {
         this.isInThisMonth = isInThisMonth;

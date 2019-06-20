@@ -1,8 +1,6 @@
 package com.example.calendar;
 
-/**
- * Created by joybar on 9/12/16.
- */
+
 public class Lunar {
     public boolean isleap;
     public int lunarDay;

@@ -14,9 +14,6 @@ import com.example.calendar.DateUtils;
 import java.util.List;
 
 
-/**
- * Created by joybar on 4/27/16.
- */
 public class CalendarViewFragment extends Fragment {
 
     private static final String YEAR = "year";

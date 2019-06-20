@@ -1,8 +1,5 @@
 package com.example.calendar;
 
-/**
- * Created by joybar on 9/12/16.
- */
 public class Solar {
     public int solarDay;
     public int solarMonth;

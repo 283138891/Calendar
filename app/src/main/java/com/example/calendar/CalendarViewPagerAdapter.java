@@ -8,9 +8,6 @@ import com.example.calendar.CalendarViewFragment;
 import com.example.calendar.DateUtils;
 
 
-/**
- * Created by joybar on 4/27/16.
- */
 public class CalendarViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public static final int NUM_ITEMS = 200;

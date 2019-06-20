@@ -10,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-/**
- * Created by joybar on 4/28/16.
- */
+
 public class CalendarViewPagerFragment extends Fragment {
 
     private static final String CHOICE_MODE_SINGLE="choice_mode_single";

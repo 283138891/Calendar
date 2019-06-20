@@ -6,9 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by joybar on 2/16/16.
- */
+
 public class DateUtils {
 
     static Calendar cal = Calendar.getInstance();

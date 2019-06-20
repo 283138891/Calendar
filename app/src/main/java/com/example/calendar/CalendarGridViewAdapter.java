@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Created by joybar on 2/24/16.
- */
+
 public class CalendarGridViewAdapter extends BaseAdapter {
 
     private List<CalendarDate> mListData = new ArrayList<>();
