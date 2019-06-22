@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    android:fadingEdge="vertical">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <!--1. 日历的整体背景颜色 android:selectedWeekBackgroundColor="#aff"-->
+    <!--2. 月份选择部分的背景色 android:focusedMonthDateColor="#f00"-->
+    <!--3. 显示星期的背景色 android:weekSeparatorLineColor="#ff0"-->
+    <!--4. 被选中的日期的背景色 android:unfocusedMonthDateColor="#f9f"-->
+    <!--1.设置以星期一为每周第一天-->
+    <!--2.设置该组件总共显示四个星期-->
+    <CalendarView
+        android:id="@+id/calendarViewId"
+        android:layout_width="match_parent"
+        android:layout_height="297dp"
+        android:firstDayOfWeek="2"
+        android:shownWeekCount="4" />
+
+    <TextView
+        android:id="@+id/trans_yin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp" />
+
+    <Button
+        android:id="@+id/btn_opencfg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="openOne"
+        android:text="@string/btn_openthins_lable" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/show_out_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="name"
+        />
+    <TextView
+        android:id="@+id/show_out_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="place"
+        />
+    <TextView
+        android:id="@+id/show_out_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="thing"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/show_out_thing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp" />
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
