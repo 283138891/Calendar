@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:scrollbars="vertical"
-    android:fadingEdge="vertical">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,86 +6,137 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-    <!--1. 日历的整体背景颜色 android:selectedWeekBackgroundColor="#aff"-->
-    <!--2. 月份选择部分的背景色 android:focusedMonthDateColor="#f00"-->
-    <!--3. 显示星期的背景色 android:weekSeparatorLineColor="#ff0"-->
-    <!--4. 被选中的日期的背景色 android:unfocusedMonthDateColor="#f9f"-->
-    <!--1.设置以星期一为每周第一天-->
-    <!--2.设置该组件总共显示四个星期-->
-    <CalendarView
-        android:id="@+id/calendarViewId"
-        android:layout_width="match_parent"
-        android:layout_height="297dp"
-        android:firstDayOfWeek="2"
-        android:shownWeekCount="4" />
+    tools:context="com.example.calendar.MainActivity"
+    tools:ignore="RtlHardcoded,HardcodedText,RtlSymmetry,SmallSp">
 
-    <TextView
-        android:id="@+id/trans_yin"
+    <RelativeLayout
+        android:id="@+id/rl_tool"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="35sp" />
+        android:layout_height="52dp"
+        android:background="@color/colorPrimary">
 
-    <Button
-        android:id="@+id/btn_opencfg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="openOne"
-        android:text="@string/btn_openthins_lable" />
+        <TextView
+            android:id="@+id/tv_month_day"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="#fff"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="time"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/show_out_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="35sp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="name"
-        />
-    <TextView
-        android:id="@+id/show_out_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="35sp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="place"
-        />
-    <TextView
-        android:id="@+id/show_out_place"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="35sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_month_day"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="12dp"
+            tools:ignore="RelativeOverlap">
 
-    <EditText
+            <TextView
+                android:id="@+id/tv_year"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_lunar"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_current"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/bg_material">
+
+            <ImageView
+                android:id="@+id/ib_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@mipmap/menu_action_calendar_mvp" />
+
+            <TextView
+                android:id="@+id/tv_current_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="13"
+                android:textColor="#fff"
+                android:textSize="12sp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <com.haibin.calendarview.CalendarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="thing"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/show_out_thing"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="35sp" />
-    </LinearLayout>
-</ScrollView>
+        android:background="#fff"
+        android:orientation="vertical"
+        app:calendar_content_view_id="@+id/recyclerView">
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            app:current_month_text_color="#333333"
+            app:lunar_text_color="#CFCFCF"
+            app:min_year="2004"
+            app:other_month_text_color="#e1e1e1"
+            app:scheme_text="假"
+            app:scheme_text_color="#fff"
+            app:scheme_theme_color="#128c4b"
+            app:scheme_theme_style="fill"
+            app:selected_text_color="#333"
+            app:selected_theme_color="#108cd4"
+            app:selected_theme_style="stroke"
+            app:show_lunar="true"
+            app:week_background="#fff"
+            app:week_text_color="#111">
+        </com.haibin.calendarview.CalendarView>
+    </com.haibin.calendarview.CalendarLayout>
+
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="成都"-->
+        <!--android:textSize="40dp"/><TextView-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="成都"-->
+            <!--android:textSize="40dp"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="TextView"-->
+        <!--android:textSize="40dp"/>-->
 
 
 
 
-
+</LinearLayout>
